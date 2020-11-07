@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&display=swap');
+.Chat{
+    
+    border-top-right-radius: 5rem;
+    
+}
+.Chat_message{
+    position: relative;
+    font-size: 16px;
+    font-family: 'Balsamiq Sans', cursive;
+    padding:10px;
+    border-radius: 10px;
+    width:fit-content;
+    background-color: white;
+    margin-bottom: 30px;
+}
+.Chat_name{
+    position: absolute;
+    top: -20px;
+}
+.Chat_timestamp{
+    color:gray;
+    font-size: 10px;
+}
+.Chat_receiver{
+    margin-left: auto;
+    background-color: rgb(164, 243, 157);
+}
+.Chat_body{
+    flex: auto;
+    padding:30px;
+}
+.Chat_footer{
+    position:absolute;
+    bottom:35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 7vh;
+    border-top:1px solid black;
+    background-color: white;
+    width: 67.5vw;
+
+}
+
+.Chat_footer>form{
+    flex:1;
+    display: flex;
+
+}
+
+.Chat_footer>form>input{
+    flex:1;
+    border-radius:400px ;
+    border:none;
+    padding: 10px;
+    color:rgb(17, 20, 17);
+}

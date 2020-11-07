@@ -1,0 +1,260 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<mat-sidenav-container>
+    <mat-sidenav mode="over" [(opened)]="mobileoptions" position="end">
+        <a mat-button routerLink="Home">Home</a><br>
+        <a mat-button routerLink="About">About</a><br>
+        <a mat-button routerLink="Shops">Shops</a><br>
+        <a mat-raised-button color="primary" routerLink="SignupLogin">Signup/Login</a>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar>
+
+            <mat-icon>add_shopping_cart</mat-icon>Buy&Sell
+            <div class="Space1"></div>
+            <div class="ButtonProp">
+                <a mat-button routerLink="Home">Home</a>
+                <a mat-button routerLink="About">About</a>
+                <a mat-button routerLink="Shops">Shops</a>
+
+
+                <!-- Button 1 -->
+                <a mat-raised-button color="primary" routerLink="SignupLogin" [hidden]="hidden1">Signup/Login</a>
+
+                <!-- button 2 -->
+                <mat-menu #LoginOptions="matMenu">
+                    <button mat-menu-item (click)="PostAnAdd()">Post an Advertisement</button>
+                    <button mat-menu-item>My Orders</button>
+                    <button mat-menu-item (click)="MessageWindow()">Messages</button>
+                    <button mat-menu-item (click)="onLogOut()">Log Out</button>
+                </mat-menu>
+                <div class="btn-group" [hidden]="hidden2">
+                    <button type="button" [matMenuTriggerFor]="LoginOptions" class="btn btn-danger" aria-haspopup="true"
+                        aria-expanded="false">
+                        Hi {{NameOfTheUser}}
+                    </button>
+                </div>
+            </div>
+            <button mat-icon-button (click)="mobileoptions=!mobileoptions" class="Threedots">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+        </mat-toolbar>
+        <!-- Enter your content in here -->
+
+        <div class=postaddcontainer>
+            <div class="Upper">
+
+            </div>
+            <div class="Middle">
+                <div class="Options">
+                    <button class="btn btn-dark" (click)="FuncBasic()">Basic Information</button>
+                    <button class="btn btn-dark" [disabled]="BasicDetailsForm.form.invalid" (click)="AboutItem()">About
+                        the Item</button>
+                    <button class="btn btn-dark" [disabled]="AboutItemForm.form.invalid"
+                        (click)="PrevAdd()">Preview</button>
+                </div>
+
+
+                <div class=Details>
+                    <div class=BasicInfo [hidden]="basichidden">
+                        <form #BasicDetailsForm="ngForm">
+                            <!-- {{BasicDetailsForm.value |json}} -->
+                            <div class="form-group">
+                                <input type="text" required placeholder="Name" #name="ngModel" required
+                                    [(ngModel)]="BaseDetails.Name" name="Name"
+                                    [class.is-invalid]="name.invalid && name.touched" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" required placeholder="Contact Number" #MobileNumber="ngModel"
+                                    required [(ngModel)]="BaseDetails.MobileNumber" name="MobileNumber"
+                                    pattern="^\d{10}$" [class.is-invalid]="MobileNumber.invalid && MobileNumber.touched"
+                                    class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                                <input type="email" required email #email="ngModel" placeholder="Email" name="Email"
+                                    [disabled]="true" [ngModel]="BaseDetails.Email" class="form-control" />
+
+                            </div>
+
+
+                            <div class="col">
+                                <div ngbDropdown class="d-inline-block">
+                                    <button class="btn btn-primary" id="dropdownBasic1" ngbDropdownToggle>Select Your
+                                        District</button>
+                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                        <button ngbDropdownItem
+                                            (click)="District([8.3114,80.4037])">Anuradhapura</button>
+                                        <button ngbDropdownItem (click)=District([6.9934,81.0550])>Badulla</button>
+                                        <button ngbDropdownItem (click)=District([7.7310,81.6747])>Batticaloa</button>
+                                        <button ngbDropdownItem (click)=District([6.9271,79.8612])>Colombo</button>
+                                        <button ngbDropdownItem (click)=District([6.0535,80.2210])>Galle</button>
+                                        <button ngbDropdownItem (click)=District([7.0840,80.0098])>Gampaha</button>
+                                        <button ngbDropdownItem (click)=District([6.1429,81.1212])>Hambanthota</button>
+                                        <button ngbDropdownItem (click)=District([9.6615,80.0255])>Jaffna</button>
+                                        <button ngbDropdownItem (click)=District([6.5854,79.9607])>Kaluthara</button>
+                                        <button ngbDropdownItem (click)=District([7.2906,80.6337])>Kandy</button>
+                                        <button ngbDropdownItem (click)=District([7.2513,80.3464])>Kegalle</button>
+                                        <button ngbDropdownItem (click)=District([9.3803,80.3770])>Kilinochchi</button>
+                                        <button ngbDropdownItem (click)=District([7.4818,80.3609])>Kurunagala</button>
+                                        <button ngbDropdownItem (click)=District([8.9810,79.9044])>Mannar</button>
+                                        <button ngbDropdownItem (click)=District([7.4675,80.6234])>Matale</button>
+                                        <button ngbDropdownItem (click)=District([5.9549,80.5550])>Matara</button>
+                                        <button ngbDropdownItem (click)=District([6.8728,81.3507])>Monaragala</button>
+                                        <button ngbDropdownItem (click)=District([9.2671,80.8142])>Mullaitivu</button>
+                                        <button ngbDropdownItem (click)=District([6.9497,80.7891])>Nuwara Eliya</button>
+                                        <button ngbDropdownItem (click)=District([7.9403,81.0188])>Polonnaruwa</button>
+                                        <button ngbDropdownItem (click)=District([8.0408,79.8394])>Puttalam</button>
+                                        <button ngbDropdownItem (click)=District([6.7056,80.3847])>Ratnapura</button>
+                                        <button ngbDropdownItem (click)=District([8.5874,81.2152])>Trincomalee</button>
+                                        <button ngbDropdownItem (click)=District([8.7542,80.4982])>Vavuniya</button>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <agm-map [zoom]="15" [(latitude)]="latitude" [longitude]="longitude"
+                                (mapClick)="OnChoseLocation($event)">
+                                <agm-marker [(latitude)]="latitude" [longitude]="longitude"
+                                    [(latitude)]="BaseDetails.Latitude" [(ngModel)]="BaseDetails.Latitude"></agm-marker>
+                            </agm-map>
+
+
+                        </form>
+
+
+                    </div>
+
+
+                    <div class="AboutItem" [hidden]="abouthidden">
+                        <form #AboutItemForm="ngForm">
+
+
+                            <div class="form-group">
+                                <input type="text" required placeholder="ItemTitle" #ItemTitle="ngModel" required
+                                    [(ngModel)]="BaseDetails.ItemTitle" name="ItemTitle" class="form-control"
+                                    [class.is-invalid]="ItemTitle.invalid && ItemTitle.touched" autocomplete="off" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" required placeholder="Item Description" #ItemDescription="ngModel"
+                                    required [(ngModel)]="BaseDetails.Desc" name="ItemDescription" class="form-control"
+                                    [class.is-invalid]="ItemDescription.invalid && ItemDescription.touched" autocomplete="off" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" required placeholder="Unit Price (LKR)" #UnitPrice="ngModel"
+                                    pattern="^\d+$" required [(ngModel)]="BaseDetails.PricePerItem" name="UnitPrice"
+                                    class="form-control" [class.is-invalid]="UnitPrice.invalid && UnitPrice.touched" autocomplete="off"/>
+                            </div>
+
+                            <div class="form-group">
+
+                                <span class="label label-default">Quantity of the item : </span>
+                                <mat-slider min="1" max="10" step="1" [(ngModel)]="BaseDetails.Count" #Count="ngModel"
+                                    name="Count" required> </mat-slider>
+                                <input matInput type="number" placeholder="Quantity" #Count="ngModel" name="Count"
+                                    [(ngModel)]="BaseDetails.Count">
+
+                            </div>
+                            <div class="form-group">
+                                <mat-form-field>
+                                    <mat-label>Select an option</mat-label>
+                                    <mat-select [(value)]="BaseDetails.ItemCategory" #catValues="ngModel"
+                                        name="catValues" [(ngModel)]="BaseDetails.ItemCategory" required>
+                                        <mat-option *ngFor="let catvalues of cats" [value]="catvalues">{{catvalues}}
+                                        </mat-option>
+
+                                    </mat-select>
+                                </mat-form-field>
+
+
+                            </div>
+                            <div class="form-group">
+                                <ngx-dropzone (change)="onSelect($event)" [accept]="'image/*'" required>
+
+                                    <ngx-dropzone-label>Add Images of your item</ngx-dropzone-label>
+
+                                    <ngx-dropzone-preview *ngFor="let f of files" [removable]="true"
+                                        (removed)="onRemove(f)">
+
+                                        <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+
+                                    </ngx-dropzone-preview>
+
+                                </ngx-dropzone>
+
+                            </div>
+
+
+                        </form>
+
+
+
+
+                        <!-- {{BaseDetails|json}} -->
+
+                    </div>
+                    <div class="Prev" [hidden]="prevhidden">
+
+
+                        <mat-card>
+                            <mat-card-title>
+                                Addvertisement preview
+                            </mat-card-title>
+                            <mat-card-content>
+                                <ngb-carousel #carousel [interval]="1000" [pauseOnHover]="pauseOnHover"
+                                    (slide)="onSlide($event)">
+                                    <ng-template ngbSlide *ngFor="let img of images; index as i">
+                                        <div class="carousel-caption">
+                                            <h3>My slide {{i + 1}} title</h3>
+                                        </div>
+                                        <a href="https://www.google.fr/?q=Number+{{i+1}}" target="_blank"
+                                            rel="nofollow noopener noreferrer">
+                                            <div class="picsum-img-wrapper">
+                                                <img [src]="img" alt="My image {{i + 1}} description">
+                                            </div>
+                                        </a>
+                                    </ng-template>
+                                </ngb-carousel>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item"><span
+                                            class="material-icons">face</span>Name:<strong>{{BaseDetails.Name}}</strong>
+                                    </li>
+                                    <li class="list-group-item"><span class="material-icons">call</span>Contact
+                                        number:<strong>{{BaseDetails.MobileNumber}}</strong></li>
+                                    <li class="list-group-item"><span
+                                            class="material-icons">create</span>Title:<strong>{{BaseDetails.ItemTitle}}</strong>
+                                    </li>
+                                    <li class="list-group-item"><span
+                                            class="material-icons">description</span>Description:<strong>{{BaseDetails.Desc}}</strong>
+                                    </li>
+                                    <li class="list-group-item"><span
+                                            class="material-icons">mail_outline</span>Email:<strong>{{BaseDetails.Email}}</strong>
+                                    </li>
+                                    <li class="list-group-item"><button mat-raised-button (click)="OpenMap()"><span class="material-icons">location_on</span>Location</button>
+                                    </li>
+                                    <li class="list-group-item"><span
+                                            class="material-icons">add</span>Quantity:<strong>{{BaseDetails.Count}}</strong>
+                                    </li>
+                                    <button (click)="gotoHomepage()" mat-raised-button color="primary">Post Advertisement</button>
+                                </ul>
+
+                            </mat-card-content>
+                        </mat-card>
+                        
+                        <!-- this is the add loading component -->
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+        <!-- end of your content in here -->
+
+    </mat-sidenav-content>
+</mat-sidenav-container>

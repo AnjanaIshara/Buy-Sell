@@ -1,0 +1,112 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<mat-sidenav-container>
+    <mat-sidenav mode="over" [(opened)]="mobileoptions" position="end">
+        <a mat-button routerLink="Home">Home</a><br>
+        <a mat-button routerLink="About">About</a><br>
+        
+        <a mat-raised-button color="primary" routerLink="SignupLogin">Signup/Login</a>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar>
+
+            <mat-icon>add_shopping_cart</mat-icon>Buy&Sell
+            <div class="Space1"></div>
+            <div class="ButtonProp">
+                <a mat-button routerLink="Home" (click)="gotoHome()">Home</a>
+                <a mat-button routerLink="About">About</a>
+      
+
+
+                <!-- Button 1 -->
+                <a mat-raised-button color="primary" (click)="gotSignupLogin()" routerLink="SignupLogin" [hidden]="hidden1">Signup/Login</a>
+
+                <!-- button 2 -->
+                <mat-menu #LoginOptions="matMenu">
+                    <button mat-menu-item (click)="PostAnAdd()">Post an Advertisement</button>
+                    <button mat-menu-item>My Orders</button>
+                    <button mat-menu-item (click)="MessageWindow()">Messages</button>
+                    <button mat-menu-item (click)="onLogOut()">Log Out</button>
+                </mat-menu>
+                <div class="btn-group" [hidden]="hidden2">
+                    <button type="button"  [matMenuTriggerFor]="LoginOptions"class="btn btn-danger" aria-haspopup="true" aria-expanded="false">
+                        Hi {{NameOfTheUser}}
+                    </button>
+
+                </div>
+            </div>
+
+            <button mat-icon-button (click)="mobileoptions=!mobileoptions" class="Threedots">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+        </mat-toolbar>
+
+        <!-- Enter your content in here -->
+        <div class="flex-container">
+            <div>
+                <h1>OBJECTIVES</h1>
+
+                <h2>Providing a platform to perform shopping</h2>
+                <p>
+                    Ecommerce hosts a platform that lets businesses sell their products or services throughout the world through an electronic medium. It includes all sorts of businesses categories that used by the island wide service & goods suppliers and the general public
+
+                </p>
+                <h2>Providing secured platform</h2>
+            For as long as there has been email, businesses have relied on verifying email addresses to prove ownership of newly created accounts. But in today’s climate, assur-ing new user signups are real human beings is becom-ing critical. By using the phone number verifica-tion,(OTP codes) the users can experience a stronger level of security and it is gradually becoming the pre-ferred way to validate new account ownership.
+            <h2>Reducing management cost</h2>
+            <h2>Increasing the efficiency of the services</h2>
+            <p>With the evolving technology online ecommerce plat-form can provide efficient way for shopping for both customers and the sellers.</p>
+            <h2>Providing a feature for communication</h2>
+            <p>
+                Integrating effective communication techniques will help develop strong supplier relationships by promot-ing trust, improving risk management, and supporting long-term goals
+            </p>
+            <h2>Machine learning approach to introduce image-based search mechanism</h2>
+            <p>
+                Also known as the visual searcg and it can be used to helpthrough images even though the users are short of verbal information to put into words. This helps the users to search for their desired product and also opens all the similar products that might like.
+            </p>
+            <h2>Making responsive ecommerce website</h2>
+            <p>
+                With the increasing use of smartphones for shopping online, it has become more than mandatory for ecom-merce businesses to go mobile. By responsive, it means to create a website that can be viewed from any devices of varying screen size, equally. Most commonly used Google search engine is already ranking the web pages according to the responsiveness of the websites. Making the websites responsive lets designers and users to op-timize the features
+            </p>
+
+            </div>
+            <div><h1>Method of implemenatation</h1>
+                <h2>Step 01 Requirement specification</h2>
+                <p>Identifying the requirements and creating the priority list to focus on each segment and functionality of the project.</p>
+                <h2>Step 02 Creating wireframes and prototype</h2>
+                <p>Using the wireframes brings more clarity to the project and it helps to visualize the views and identify the goals achieved by each segment. Using prototypes give the overview of the finalized product.</p>
+                <h2>Step 03 Designing the architecture</h2>
+                <p>Creating a logical layout of the website according to the requirements gathered.</p>
+                <h2>Step 04 Deciding the development method</h2>
+                <p>A website can be developed using many approaches such as implementing all the logical fuctionalities per-formed in the frontend, using a frontend with backend as a service model such as firebase, using a front end with along with a backend. Front end with a backend is the development method used for the implementation of the project.</p>
+                <h2>Step 05 Selection of framworks to implement the frontend and the backend</h2>
+                <p></p>
+                <h2>Step 06 Selection of the database model</h2>
+                <p>Relational, non relational, Object oriented was heavily used database models and Non relational noSQL ap-proach was more appropriate for the application be-cause of it can handle large volumes of data at high speed and it is more developer friendly option.</p>
+                <h2>Step 07 Implementation the features</h2>
+                <p>Implementing each feature such as Signup/Login, mo-bile authentication, messaging platform, advertisement posting section, image identification process using google compute engine.</p>
+                <h2>Step 08 Testing and debugging</h2>
+                <p>Unit testing, integration testing, System testing was per-formed at each stage and followed CICD practice while developing the project</p>
+                <h2>Step 09 Deployment</h2>
+                <p>Front end and back end was hosted in AWS but later it had to be removed because of the expiration of the ser-vices.</p>
+            </div>
+            <div><h1>Challenges</h1>
+            <h2>Choosing the appropriate language and framework for the development process</h2>
+            <h2>Cross Origin Errors</h2>
+            <p>
+                A security mechanism that browsers implement called the same-origin policy. The same-origin policy fights one of the most common cyber attacks out there: cross-site request forgery. In this maneuver, a malicious web-site attempts to take advantage of the browser's cookie storage system. Using access control allow origin meth-od this error can be rectified. Adding appropriate head-ers from the servers is another method of solving this issue.  
+            </p>
+            <h2>Frequent updates in web frameworks</h2>
+            <p>In order to prevent the security vulnerabilities both front end and backend frameworks releases the updates to the softwares. This was a problem which couldn’t be solved using any methods other than the re-writing the program. In the beginning of the project the stable ver-sion of angular was angular 8 and now it is angular 10 also some services used in the firebase is not compatible with older vesions of the angular.</p>
+            <h2>Integration of the machine learning models with the front end</h2>
+            <p>Less documentation for the integrating a machine learning model was another challenged faced during the im-plementation of the project.</p>
+            
+            
+            
+            </div>
+          </div>
+        <!-- Enter your content in here -->
+        
+
+    </mat-sidenav-content>
+</mat-sidenav-container>
+<ng-container *ngComponentOutlet="LoadComponentHome"></ng-container>

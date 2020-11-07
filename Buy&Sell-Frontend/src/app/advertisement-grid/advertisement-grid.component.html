@@ -1,0 +1,77 @@
+<div class="Search">
+  <select (change)="selectChangeHandler($event)">
+    <option value="All">All</option>
+    <option value="Electronics">Electronics</option>
+    <option value="Property">Property</option>
+    <option value="Grocery">Grocery</option>
+    <option value="Other">Other</option>
+
+  </select>
+
+  <input type="text" id="searchQuery">
+
+  <button class="srchbtn btn" (click)="getSearchQuery();LoadAdvertisements()">
+    <div class="searchicon">
+      <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd"
+          d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z" />
+        <path fill-rule="evenodd"
+          d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" />
+      </svg>
+    </div>
+
+  </button>
+  <input class="imgUploadbtn" type="file" id="file" (change)="onFileSelected($event)" accept="image/*" #clssify>
+  <label class="btn imagesearch" for="file" id="fileid">
+    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-camera" fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd"
+      d="M15 12V6a1 1 0 0 0-1-1h-1.172a3 3 0 0 1-2.12-.879l-.83-.828A1 1 0 0 0 9.173 3H6.828a1 1 0 0 0-.707.293l-.828.828A3 3 0 0 1 3.172 5H2a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2z" />
+    <path fill-rule="evenodd" d="M8 11a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+    <path d="M3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z" />
+  </svg>
+  </label>
+  <button class="btn" *ngIf="enableimageupload" (click)="onUpload()">
+    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-image-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" d="M.002 3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-12a2 2 0 0 1-2-2V3zm1 9l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094L15.002 9.5V13a1 1 0 0 1-1 1h-12a1 1 0 0 1-1-1v-1zm5-6.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+    </svg>
+  </button>
+
+
+</div>
+
+
+<div class="gridofadds">
+
+  <div class="card"  *ngFor="let number of objArr; let i = index" style="width: 18rem;">
+    <ngb-carousel>
+      <ng-template ngbSlide *ngFor="let img of number.ImgURL">
+        <div class="picsum-img-wrapper">
+          <img class="d-block w-100" [src]=img alt="Random first slide">
+        </div>
+        
+      </ng-template>
+      
+
+    </ngb-carousel>
+    <div class="card-body">
+
+      <div class="Title">{{number.ItemTitle}}</div>
+      <div>Description: {{number.Desc}}</div>
+      <div>Price:{{number.PricePerItem}}</div>
+      <div>Quantity:{{number.Count}}</div>
+      <div>Email: {{number.Email}}</div>
+      <div>
+        <button mat-raised-button (click)="OpenMap(i)"><span class="material-icons">location_on</span>Location</button>
+      </div>
+
+    </div>
+    <button type="button" class="btn btn-success" (click)="GetIndex(i)">Contact</button>
+  </div>
+  
+
+</div>
+<div *ngIf="show"><h1>No Results Found<br></h1></div>
+<div *ngIf="show" id="NotFound"></div>
+

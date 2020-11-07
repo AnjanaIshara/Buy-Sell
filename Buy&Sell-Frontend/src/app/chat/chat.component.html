@@ -1,0 +1,40 @@
+<div class="Chat">
+    
+    <div class="Chat_body" *ngFor="let instance of MESSAGES">
+        
+       
+
+            <div *ngIf="owner==instance.From;else elseBlock" class="Chat_message Chat_receiver">
+                <span class="Chat_name">{{sender}}</span>
+                {{instance.Content}}
+                <span class="Chat_timestamp">3.52 p.m</span>
+            </div>
+
+        
+            <ng-template #elseBlock>
+                <div  class="Chat_message">
+                    <span class="Chat_name">{{receiver}}</span>
+                    {{instance.Content}}
+                    <span class="Chat_timestamp">3.52 p.m</span>
+                </div>
+            </ng-template>
+       
+        
+      
+
+
+        
+    </div>
+    
+    <div class="Chat_footer">
+        <form>
+            <input type="text" id="msg" [(ngModel)]='msg' name="msg" placeholder="Type your message" autocomplete="off">
+            <button type="submit" [disabled]="!msg" (click)="OnMessage()" >
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cursor-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103z"/>
+                  </svg>
+            </button>
+        </form>
+    </div>
+</div>
+

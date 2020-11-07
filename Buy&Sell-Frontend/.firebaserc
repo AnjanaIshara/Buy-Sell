@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "engineering-project-ec9a9": {
+      "hosting": {
+        "Template": [
+          "engineering-project-ec9a9"
+        ]
+      }
+    }
+  }
+}

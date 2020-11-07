@@ -1,0 +1,51 @@
+.mat-toolbar{
+    display: flex;
+    vertical-align: none;
+    width:100%;
+    background-color:rgb(204, 255,255);
+}
+.Space1{
+    flex: 1 1 auto;
+}
+
+.mat-raised-button{
+    transform: scale(0.9);
+}
+
+mat-sidenav-container{
+    
+    overflow: hidden;
+}
+mat-sidenav{
+    width:40%;
+}
+.Threedots{
+    display: none;
+}
+.flexcontainer{
+    display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: center;
+}
+.SliderImageProperties{
+    height: 500px;
+    width:900px ;
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .ButtonProp{
+        display: none;
+    }
+    .Threedots{
+        display: inline;
+    }
+    .SliderImageProperties{
+        height: 45%;
+        width:100%;
+    }
+    
+    
+    
+  }

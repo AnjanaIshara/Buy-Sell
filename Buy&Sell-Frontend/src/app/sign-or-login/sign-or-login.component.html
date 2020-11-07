@@ -1,0 +1,148 @@
+<mat-sidenav-container>
+    <mat-sidenav mode="over" [(opened)]="mobileoptions" position="end">
+        <a mat-button routerLink="Home">Home</a><br>
+        <a mat-button routerLink="About">About</a><br>
+        <a mat-button routerLink="Shops">Shops</a><br>
+        <a mat-raised-button color="primary" routerLink="SignupLogin">Signup/Login</a>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar>
+
+            <mat-icon>add_shopping_cart</mat-icon>Buy&Sell
+            <div class="Space1"></div>
+            <div class="ButtonProp">
+                <a mat-button routerLink="Home">Home</a>
+                <a mat-button routerLink="About">About</a>
+                <a mat-button routerLink="Shops">Shops</a>
+                <a mat-raised-button color="primary" routerLink="SignupLogin">Signup/Login</a>
+            </div>
+            <button mat-icon-button (click)="mobileoptions=!mobileoptions" class="Threedots">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+        </mat-toolbar>
+
+        <!-- Enter your content in here -->
+
+
+
+
+        <div class="container" id="container">
+            <div class="form-container sign-up-container">
+                <form #userForm="ngForm" novalidate>
+                    <h1>Create Account</h1>
+                    <!-- {{userForm.value|json}}
+                    <br>
+                    {{userModel|json}} -->
+                    <div class="form-group">
+                        <input type="text" required #name="ngModel"  placeholder="Name" name="Name" class="form-control"
+                            [(ngModel)]="userModel.Name" />
+                        <span class="help-block" *ngIf="name.invalid && name.touched">Name is required</span>
+                    </div>
+
+
+                    <div class="form-group">
+                        <input type="email" required email #email="ngModel" placeholder="Email" name="Email"
+                            [(ngModel)]="userModel.Email" />
+                        <span class="help-block" *ngIf=" email.errors?.required && email.touched">E-mail is
+                            required</span>
+                        <span class="help-block" *ngIf="email.errors?.email && email.touched">E-mail is invalid</span>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" required #password="ngModel" placeholder="Password" name="Password"
+                            [(ngModel)]="userModel.Password" />
+                        <span class="help-block" *ngIf="password.invalid && password.touched">Password is
+                            required</span>
+
+                    </div>
+                    <div class="form-group">
+                        <select (blur)="ValidateCountry(country.value)" (change)="ValidateCountry(country.value)"
+                            class="custom-select" required #country="ngModel" name="Country"
+                            [(ngModel)]="userModel.Country" [class.is-invalid]="countryHasError && country.touched">
+                            <option value="default" selected="selected">Select the Country: </option>
+                            <option *ngFor="let country of countries" [value]="country.Code">{{country.Name}}</option>
+                        </select>
+                        <span class="help-block" *ngIf="countryHasError && country.touched">Please select a
+                            country</span>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" #MobileNo=ngModel required pattern="^07[0-9]{8}"
+                            [class.is-invalid]="MobileNo.invalid && MobileNo.touched"
+                            placeholder="Mobile No(07xxxxxxxx)" name="MobileNo" [(ngModel)]="userModel.MobileNumber" />
+                        <span class="help-block" *ngIf="MobileNo.errors?.pattern && MobileNo.touched">Mobile Number is
+                            invalid</span>
+
+                    </div>
+
+
+                    <button [disabled]="userForm.form.invalid ||countryHasError" (click)="onSubmit()" type="submit">Sign
+                        Up</button>
+
+
+                </form>
+            </div>
+            <div class="form-container sign-in-container">
+                <form #loginForm="ngForm" novalidate>
+                    <h1>Sign in</h1>
+                    <!-- {{loginForm.value| json}}
+                    <br>
+                    {{loginModel|json}} -->
+
+                    <div class="form-group">
+                        <input type="email" required email #email="ngModel" placeholder="Email" name="Email"
+                            [(ngModel)]="loginModel.Email" />
+                        <span class="help-block" *ngIf=" email.errors?.required && email.touched">E-mail is
+                            required</span>
+                        <span class="help-block" *ngIf="email.errors?.email && email.touched">E-mail is invalid</span>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" required #password="ngModel" placeholder="Password" name="Password"
+                            [(ngModel)]="loginModel.Password" />
+                        <span class="help-block" *ngIf="password.invalid && password.touched">Password is
+                            required</span>
+                    </div>
+
+
+
+                    <a href="#">Forgot your password?</a>
+
+
+                    <button [disabled]="loginForm.form.invalid" (click)="onLogin()" type="submit">Sign In</button>
+
+
+                </form>
+            </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
+                        <h1>Welcome Back!</h1>
+                        <p>To keep connected with us please login with your personal info</p>
+                        <button class="ghost" id="signIn" (click)="SigninFunction()">Sign In</button>
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <h1>Hello, Friend!</h1>
+                        <p>Enter your personal details and start Shopping with us</p>
+                        <button class="ghost" id="signUp" (click)="SignupFunction()">Sign Up</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- End of the content in here -->
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
+
+
+
+<!-- <footer>
+    <p>
+        Created with <i class="fa fa-heart"></i> by
+        <a target="_blank" href="https://florin-pop.com">Florin Pop</a>
+        - Read how I created this and how you can join the challenge
+        <a target="_blank" href="https://www.florin-pop.com/blog/2019/03/double-slider-sign-in-up-form/">here</a>.
+    </p>
+</footer> -->

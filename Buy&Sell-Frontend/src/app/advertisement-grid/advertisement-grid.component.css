@@ -1,0 +1,80 @@
+body{
+    margin: 1%;
+}
+.Title{
+    color: blue;
+    font-weight: bolder;
+    text-align: center;
+}
+.card{
+    min-width: 100px;
+    border-radius: 5px;
+    opacity: 0.9;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: all .6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    margin: auto;
+
+}
+.card:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+.Search{
+    display: flex;
+    margin: auto;
+    width: 40%;
+    border: solid black;
+    z-index: 100;
+    
+    
+}
+.Search>input{
+    flex: 1;
+    border: none;
+    width: 60%;
+}
+.srchbtn{
+    border: none;
+    background-color: lightgray;
+    border: none;
+    width: 20%;
+    border-left: 1px solid black;
+}
+.searchicon{
+    margin: auto;
+    justify-content: center;
+    align-self: center;
+    object-fit: fill;
+    
+    background-color: lightgray;
+    border: none;
+    
+}
+.gridofadds{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    grid-gap: 2rem;
+    padding: 5%;
+}
+.gridofadds>.card{
+    width:30%;
+}
+.picsum-img-wrapper>img{
+    object-fit: contain;
+    height: 160px;
+    margin:0;
+}
+.hide-class{
+    display: hidden;
+}
+input[type="file"]{
+    display: none;
+}
+.imagesearch{
+    
+    margin:auto;
+    justify-content: center;
+    align-self: center;
+    object-fit:fill ;
+    background-color: #f0c9c6;
+}

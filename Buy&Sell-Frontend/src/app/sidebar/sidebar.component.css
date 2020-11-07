@@ -1,0 +1,8 @@
+.ChatElement{
+    border-bottom-width: 1px;
+    border-bottom-style: solid ;
+    
+}
+.ChatElement:hover{
+    background-color: rgb(161, 159, 159);
+}

@@ -1,0 +1,133 @@
+.mat-toolbar{
+    display: flex;
+    vertical-align: none;
+    width:100%;
+    background-image:linear-gradient(to right,#007991, #78ffd6);
+}
+.Space1{
+    flex: 1 1 auto;
+}
+
+.mat-raised-button{
+    transform: scale(0.9);
+}
+
+mat-sidenav-container{
+    height:100%;
+    overflow: hidden;
+}
+mat-sidenav{
+    width:40%;
+}
+.Threedots{
+    display: none;
+}
+.flexcontainer{
+    display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: center;
+}
+.SliderImageProperties{
+    height: 500px;
+    width:900px ;
+}
+img{
+    height: 300px;
+}
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .ButtonProp{
+        display: none;
+    }
+    .Threedots{
+        display: inline;
+    }
+    .SliderImageProperties{
+        height: 45%;
+        width:100%;
+    }
+    
+    
+    
+  }
+.postaddcontainer{
+    
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      
+}
+
+
+/* main devisions */
+.Upper{                                     
+    height:100px ;
+    width: 100px;
+    background:transparent;
+}
+.Middle{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+    width: 80%;
+    background: #edf9ff;
+    border-radius: 10%;
+}
+
+/* ENd of the main devisions */
+
+.Options{
+    margin: auto;
+    
+}
+.BasicInfo {
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+
+}
+agm-map{
+    height: 400px;
+    width: 100%;
+}
+
+.PictureRow {
+    display: flex;
+  }
+  
+  .PictureColumn {
+    flex: 33.33%;
+    padding: 5px;
+  }
+.Prev{
+    display: flex;
+    justify-content: center;
+    height: 80%;
+}
+.Advertisement{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+///////////////////////////////////////crd/////////////////
+.form-gradient .header {
+    border-top-left-radius: .3rem;
+    border-top-right-radius: .3rem; }
+    
+    .form-gradient input[type=text]:focus:not([readonly]) {
+    border-bottom: 1px solid #fd9267;
+    box-shadow: 0 1px 0 0 #fd9267; }
+    
+    .form-gradient input[type=text]:focus:not([readonly]) + label {
+    color: #4f4f4f; }
+    
+    .form-gradient textarea.md-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #fd9267;
+    box-shadow: 0 1px 0 0 #fd9267; }

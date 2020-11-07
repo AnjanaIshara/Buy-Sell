@@ -1,0 +1,75 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<mat-sidenav-container>
+    <mat-sidenav mode="over" [(opened)]="mobileoptions" position="end">
+        <a mat-button routerLink="Home">Home</a><br>
+        <a mat-button routerLink="About">About</a><br>
+        
+        <a mat-raised-button color="primary" routerLink="SignupLogin">Signup/Login</a>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar>
+
+            <mat-icon>add_shopping_cart</mat-icon>Buy&Sell
+            <div class="Space1"></div>
+            <div class="ButtonProp">
+                <a mat-button routerLink="Home" (click)="gotoHome()">Home</a>
+                <a mat-button routerLink="About">About</a>
+                
+
+
+                <!-- Button 1 -->
+                <a mat-raised-button color="primary" routerLink="SignupLogin" [hidden]="hidden1">Signup/Login</a>
+
+                <!-- button 2 -->
+                <mat-menu #LoginOptions="matMenu">
+                    <button mat-menu-item (click)="PostAnAdd()">Post an Advertisement</button>
+                    <button mat-menu-item>My Orders</button>
+                    <button mat-menu-item (click)="MessageWindow()">Messages</button>
+                    <button mat-menu-item (click)="onLogOut()">Log Out</button>
+                </mat-menu>
+                <div class="btn-group" [hidden]="hidden2">
+                    <button type="button"  [matMenuTriggerFor]="LoginOptions"class="btn btn-danger" aria-haspopup="true" aria-expanded="false">
+                        Hi {{NameOfTheUser}}
+                    </button>
+
+                </div>
+            </div>
+
+            <button mat-icon-button (click)="mobileoptions=!mobileoptions" class="Threedots">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+        </mat-toolbar>
+
+        <!-- Enter your content in here -->
+        <!-- Image slider is here -->
+        
+        <div class="flexcontainer"  id="myDiv">
+            <ngb-carousel *ngIf="images">
+                <ng-template ngbSlide>
+                    <img [src]="images[0]" class="SliderImageProperties" alt="Random first slide">
+                    <div class="carousel-caption">
+                        <!-- <h3>First slide label</h3>
+                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> -->
+                    </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                    <img [src]="images[1]" class="SliderImageProperties" alt="Random second slide">
+                    <div class="carousel-caption">
+                        <!-- <h3>Second slide label</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
+                    </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                    <img [src]="images[2]" class="SliderImageProperties" alt="Random third slide">
+                    <div class="carousel-caption">
+                        <!-- <h3>Third slide label</h3>
+                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p> -->
+                    </div>
+                </ng-template>
+            </ngb-carousel>
+        </div>
+        <!-- Image slider ended -->
+
+    </mat-sidenav-content>
+</mat-sidenav-container>
+<ng-container *ngComponentOutlet="LoadComponentHome"></ng-container>
